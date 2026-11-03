@@ -1,0 +1,122 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 5: Git Version Control
+
+### 1. Objective
+
+To understand and implement Git version control operations, including repository initialization, staging, committing, branching, merging and pushing source code to GitHub.
+
+### 2. Tools Used
+
+- Git 2.53.0.windows.2
+- GitHub
+- Windows PowerShell
+- Visual Studio Code
+
+### 3. Git Configuration
+
+The global Git username and email were configured:
+
+```powershell
+git config --global user.name "Upadhyayula Nijaagna"
+git config --global user.email "nijjusai1875@gmail.com"
+```
+
+### 4. Repository Initialization
+
+A local Git repository was initialized:
+
+```powershell
+git init
+git branch -M main
+```
+
+The GitHub remote repository was connected:
+
+```powershell
+git remote add origin https://github.com/Nijaagna05/DevOps-Lab-1-Nijaagna.git
+```
+
+### 5. Staging and Committing
+
+Project files were staged and committed:
+
+```powershell
+git add .
+git commit -m "Initial commit: Flask application and Jenkins pipeline"
+```
+
+The initial project commit was created successfully.
+
+### 6. Synchronizing with GitHub
+
+The existing GitHub README history was merged with the local repository:
+
+```powershell
+git pull --no-rebase origin main --allow-unrelated-histories
+```
+
+The project was pushed:
+
+```powershell
+git push -u origin main
+```
+
+### 7. Branch Creation
+
+A feature branch was created:
+
+```powershell
+git switch -c feature/update-observations
+```
+
+A demonstration file was added:
+
+```powershell
+"Feature branch created and merged successfully." |
+Set-Content .\observations\branch-test.txt
+```
+
+The file was committed:
+
+```powershell
+git add .
+git commit -m "Demonstrate feature branch workflow"
+```
+
+### 8. Branch Merging
+
+The feature branch was merged into main:
+
+```powershell
+git switch main
+git merge feature/update-observations
+git push
+```
+
+### 9. Verification
+
+The commit history and repository status were verified:
+
+```powershell
+git log --oneline --graph --all
+git status
+```
+
+Observed results:
+- Feature branch created successfully.
+- Feature commit created successfully.
+- Feature branch merged into main.
+- Changes pushed to GitHub.
+- Local main branch synchronized with origin/main.
+- Working tree clean.
+
+### 10. GitHub Repository
+
+Repository URL:
+
+https://github.com/Nijaagna05/DevOps-Lab-1-Nijaagna
+
+### 11. Conclusion
+
+The experiment successfully demonstrated Git version control operations, including initialization, staging, committing, remote repository configuration, branch creation, merging and pushing changes to GitHub.

@@ -1,0 +1,81 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 7: Jenkinsfile with Build, Test and Deploy Stages
+
+### 1. Objective
+
+To create and execute a declarative Jenkins pipeline using a Jenkinsfile containing Checkout, Build, Test, Package and Deploy stages.
+
+### 2. Jenkinsfile Configuration
+
+The Jenkinsfile is stored in the root directory of the GitHub repository.
+
+It defines the following stages:
+
+**Checkout**
+- Retrieves the latest source code from GitHub.
+- Uses the configured main branch.
+
+**Build**
+- Installs Flask and Pytest dependencies.
+- Uses requirements.txt.
+
+**Test**
+- Executes automated tests using Pytest.
+- Generates a JUnit XML test report.
+
+**Package**
+- Uses Python compileall to compile the application source code.
+
+**Deploy**
+- Checks whether port 5000 is already occupied.
+- Stops an existing application process on that port.
+- Starts the Flask application.
+- Verifies the application using the /health endpoint.
+
+### 3. Post-Build Actions
+
+The Jenkinsfile includes post-build actions:
+
+- Publishes JUnit test results.
+- Prints a success message when the pipeline succeeds.
+- Prints a failure message when the pipeline fails.
+- Displays a final execution message.
+
+### 4. Pipeline Execution
+
+The Jenkins job DevOps-Lab-1 was executed using the Jenkins dashboard.
+
+Jenkins retrieved the Jenkinsfile from GitHub and executed its stages.
+
+### 5. Execution Results
+
+The pipeline completed successfully.
+
+Observed console output:
+
+```text
+2 passed in 0.14s
+
+Deployment successful. PID: 23772
+Application health: healthy
+
+Pipeline completed successfully!
+Finished: SUCCESS
+```
+
+### 6. Result
+
+All five pipeline stages completed successfully:
+
+1. Checkout
+2. Build
+3. Test
+4. Package
+5. Deploy
+
+The application was deployed and its health endpoint returned healthy.
+
+### 7. Conclusion
+
+The experiment successfully demonstrated a declarative Jenkins pipeline using a Jenkinsfile. The pipeline automated source checkout, dependency installation, testing, compilation and deployment. The deployment was verified through an HTTP health check, and Jenkins reported SUCCESS.

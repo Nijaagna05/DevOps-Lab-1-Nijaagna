@@ -1,0 +1,79 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 3: Automate Deployment Using Jenkins
+
+### 1. Objective
+
+To automate application deployment using Jenkins by integrating source code from GitHub, installing dependencies, executing automated tests and deploying a Python Flask application.
+
+### 2. Tools Used
+
+- Jenkins 2.580.2
+- Git 2.53.0
+- GitHub
+- Python 3.14.6
+- Flask 3.1.2
+- Pytest 8.4.2
+- Windows PowerShell
+
+### 3. Jenkins Job Configuration
+
+A Jenkins Pipeline job named DevOps-Lab-1 was created.
+
+Configuration:
+- SCM: Git
+- Repository: https://github.com/Nijaagna05/DevOps-Lab-1-Nijaagna.git
+- Branch: main
+- Pipeline script: Jenkinsfile
+- Build trigger: Poll SCM
+- Polling schedule: H/2 * * * *
+
+### 4. Deployment Workflow
+
+The deployment process consists of these steps:
+
+1. Jenkins checks out the source code from GitHub.
+2. Jenkins installs dependencies using requirements.txt.
+3. Jenkins executes automated tests using Pytest.
+4. Jenkins compiles the Python application.
+5. Jenkins starts the Flask application.
+6. Jenkins performs a health check using the /health endpoint.
+
+### 5. Deployment Script
+
+The Jenkinsfile uses a PowerShell deployment script to:
+- Check whether port 5000 is already in use.
+- Stop an existing application process listening on that port.
+- Start the Flask application using Python.
+- Send an HTTP request to the health endpoint.
+- Fail the pipeline if the health check does not return healthy.
+
+### 6. Execution Results
+
+Jenkins Build #3 completed successfully.
+
+Observed output:
+
+Deployment successful. PID: 23772
+
+Application health: healthy
+
+Pipeline completed successfully!
+
+Finished: SUCCESS
+
+### 7. Post-Build Actions
+
+The pipeline uses Jenkins post-build actions to:
+- Publish the Pytest JUnit XML report.
+- Display a success message after a successful pipeline.
+- Display a failure message if the pipeline fails.
+- Print a final execution message.
+
+### 8. Result
+
+The deployment was successfully automated through Jenkins. The Flask application was started, and its health endpoint returned the expected healthy status.
+
+### 9. Conclusion
+
+This experiment demonstrated automated deployment using Jenkins and GitHub. The application was built, tested, compiled and deployed through a Jenkins pipeline. The deployment was verified through an HTTP health check.

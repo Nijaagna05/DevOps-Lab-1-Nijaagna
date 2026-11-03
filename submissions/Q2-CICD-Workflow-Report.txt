@@ -1,0 +1,94 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 2: CI/CD Workflow Report
+
+### 1. Introduction
+
+Continuous Integration and Continuous Deployment (CI/CD) are DevOps practices that automate software integration, testing and deployment. This experiment demonstrates a CI/CD workflow using Git, GitHub, Jenkins and a Python Flask application.
+
+### 2. Architecture
+
+The workflow consists of the following components:
+
+- Developer: Creates and modifies application source code.
+- Git: Tracks changes and manages branches.
+- GitHub: Hosts the source code repository.
+- Jenkins: Automates the CI/CD pipeline.
+- Python and Flask: Provide the application runtime.
+- Pytest: Executes automated application tests.
+
+### 3. Workflow Architecture
+
+Developer → Git Repository → GitHub → Jenkins → Checkout → Build → Test → Package → Deploy → Health Check
+
+### 4. Pipeline Stages
+
+**Stage 1: Checkout**
+
+Jenkins retrieves the latest source code from the GitHub repository's main branch.
+
+**Stage 2: Build**
+
+Jenkins installs the dependencies listed in requirements.txt using pip.
+
+**Stage 3: Test**
+
+Pytest executes the automated tests in tests/test_app.py.
+
+Two tests are included:
+- test_home: Verifies the home endpoint returns HTTP 200 and the expected application message.
+- test_health: Verifies the health endpoint returns HTTP 200 and a healthy status.
+
+**Stage 4: Package**
+
+The Python compileall module checks and compiles the application source files.
+
+**Stage 5: Deploy**
+
+Jenkins launches the Flask application on port 5000 and performs an HTTP health check against the /health endpoint.
+
+### 5. Automation Configuration
+
+- Source repository: https://github.com/Nijaagna05/DevOps-Lab-1-Nijaagna
+- Jenkins job: DevOps-Lab-1
+- Branch: main
+- Pipeline definition: Pipeline script from SCM
+- Pipeline file: Jenkinsfile
+- Build trigger: Poll SCM
+- Polling schedule: H/2 * * * *
+
+### 6. Execution Results
+
+The Jenkins pipeline successfully executed the following operations:
+
+| Operation | Result |
+|---|---|
+| GitHub checkout | Successful |
+| Dependency installation | Successful |
+| Automated testing | 2 tests passed |
+| Application compilation | Successful |
+| Flask deployment | Successful |
+| Health check | healthy |
+| Overall Jenkins build | SUCCESS |
+
+### 7. Observations
+
+1. Jenkins successfully retrieved the application from GitHub.
+2. Dependencies were installed automatically.
+3. Both automated tests passed.
+4. The application was compiled without errors.
+5. Jenkins started the Flask application.
+6. The health endpoint returned the expected healthy response.
+7. The pipeline reported SUCCESS.
+
+### 8. Advantages of the Workflow
+
+- Reduces manual intervention.
+- Detects errors early through automated testing.
+- Provides repeatable build and deployment steps.
+- Integrates source control with continuous integration.
+- Improves software delivery consistency.
+
+### 9. Conclusion
+
+The experiment successfully demonstrated a CI/CD workflow using GitHub and Jenkins. The Flask application was retrieved, built, tested, packaged and deployed through an automated pipeline. The deployment was verified using an HTTP health check. The implementation was performed on Windows.

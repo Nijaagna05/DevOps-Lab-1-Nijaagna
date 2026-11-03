@@ -1,0 +1,84 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 4: Installation and Configuration of Git and Jenkins
+
+### 1. Objective
+
+To install and configure Git and Jenkins, establish the Java runtime required by Jenkins, and verify that both tools are operational.
+
+### 2. Implementation Environment
+
+The practical implementation was performed on Windows rather than Ubuntu Linux.
+
+- Operating System: Windows
+- Git: 2.53.0.windows.2
+- Jenkins: 2.580.2
+- Java: Eclipse Temurin JDK 21.0.13
+- Shell: Windows PowerShell
+
+### 3. Java Installation and Verification
+
+Jenkins requires Java to run.
+
+The installed Java version was verified using:
+
+```powershell
+java -version
+javac -version
+```
+
+The system successfully reported Eclipse Temurin JDK 21.
+
+### 4. Git Installation and Verification
+
+Git was installed and verified using:
+
+```powershell
+git --version
+```
+
+Observed version:
+
+Git version 2.53.0.windows.2
+
+### 5. Git Global Configuration
+
+The Git username and email address were configured using:
+
+```powershell
+git config --global user.name "Upadhyayula Nijaagna"
+git config --global user.email "nijjusai1875@gmail.com"
+git config --global --list
+```
+
+### 6. Jenkins Installation and Verification
+
+Jenkins 2.580.2 was installed using its Windows installer and configured to run as a Windows service.
+
+The service was verified using:
+
+```powershell
+Get-Service Jenkins
+```
+
+The Jenkins dashboard was accessed through:
+
+http://localhost:8080
+
+The initial administrator setup was completed, and the Jenkins dashboard became accessible.
+
+### 7. Result
+
+- Java installation verified.
+- Git installation verified.
+- Git global identity configured.
+- Jenkins installed and running as a Windows service.
+- Jenkins dashboard accessed successfully.
+
+### 8. Platform Limitation
+
+The assignment specifies Ubuntu Linux. However, the practical implementation documented in this report was performed on Windows. Ubuntu installation and verification were not performed. Therefore, the Ubuntu-specific requirement remains incomplete.
+
+### 9. Conclusion
+
+Git and Jenkins were successfully installed and configured in the Windows environment. Java was verified, Git identity was configured, and Jenkins was accessed through its local dashboard. This demonstrates the installation and configuration workflow, but does not constitute completion of the Ubuntu-specific requirement.

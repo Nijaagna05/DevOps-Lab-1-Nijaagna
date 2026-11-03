@@ -1,0 +1,75 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 6: Jenkins Continuous Integration Pipeline
+
+### 1. Objective
+
+To create a Jenkins CI pipeline that retrieves source code from GitHub and automatically builds and tests the application.
+
+### 2. Tools Used
+
+- Jenkins 2.580.2
+- Git and GitHub
+- Python 3.14.6
+- Flask 3.1.2
+- Pytest 8.4.2
+- Windows PowerShell
+
+### 3. Jenkins Job Creation
+
+A Jenkins Pipeline job named DevOps-Lab-1 was created.
+
+The job was configured with:
+- Definition: Pipeline script from SCM
+- SCM: Git
+- Repository URL: https://github.com/Nijaagna05/DevOps-Lab-1-Nijaagna.git
+- Branch: */main
+- Script Path: Jenkinsfile
+- Credentials: None, because the repository is public.
+
+### 4. Build Trigger
+
+Poll SCM was configured with the following schedule:
+
+```text
+H/2 * * * *
+```
+
+This instructs Jenkins to check the repository approximately every two minutes and initiate a build when changes are detected.
+
+### 5. CI Pipeline Execution
+
+The Jenkins pipeline performs these operations:
+
+1. Checks out source code from GitHub.
+2. Installs dependencies using pip.
+3. Executes automated tests using Pytest.
+4. Compiles the application source code.
+
+### 6. Automated Test Results
+
+Two automated tests were executed:
+
+- test_home: Passed.
+- test_health: Passed.
+
+Observed result:
+
+```text
+2 passed
+```
+
+### 7. Jenkins Build Result
+
+The Jenkins build completed successfully.
+
+The console output confirmed:
+- Successful GitHub checkout.
+- Successful dependency installation.
+- Successful automated test execution.
+- Successful Python compilation.
+- Overall build status: SUCCESS.
+
+### 8. Conclusion
+
+The experiment successfully demonstrated Continuous Integration using Jenkins and GitHub. Jenkins automatically retrieved the source code, installed the required dependencies, executed automated tests and compiled the application. The pipeline completed successfully.

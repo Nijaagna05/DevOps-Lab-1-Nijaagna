@@ -1,0 +1,90 @@
+# Lab 1: DevOps Foundations & Continuous Integration
+
+## Question 1: Commands, Pipeline Configurations, Screenshots and Observations
+
+### Objective
+To document the commands, configurations, source code, Git operations and Jenkins pipeline execution performed during the DevOps lab.
+
+### Environment
+- Operating System: Windows
+- IDE: Visual Studio Code
+- Version Control: Git 2.53.0
+- Repository: GitHub
+- CI/CD Tool: Jenkins 2.580.2
+- Java: Eclipse Temurin JDK 21
+- Python: 3.14.6
+- Application Framework: Flask
+- Testing Framework: Pytest
+
+### Git Configuration
+```powershell
+git config --global user.name "Upadhyayula Nijaagna"
+git config --global user.email "nijjusai1875@gmail.com"
+git init
+git branch -M main
+git remote add origin https://github.com/Nijaagna05/DevOps-Lab-1-Nijaagna.git
+```
+
+### Git Version Control Commands
+```powershell
+git add .
+git commit -m "Initial commit: Flask application and Jenkins pipeline"
+git pull --no-rebase origin main --allow-unrelated-histories
+git push -u origin main
+git switch -c feature/update-observations
+git add .
+git commit -m "Demonstrate feature branch workflow"
+git switch main
+git merge feature/update-observations
+git push
+git log --oneline --graph --all
+git status
+```
+
+### Python Environment and Testing
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pytest tests -v
+python application\app.py
+```
+
+### Jenkins Configuration
+- Jenkins was installed and configured on Windows.
+- A Pipeline job named DevOps-Lab-1 was created.
+- The job was connected to the public GitHub repository.
+- Branch configured: main.
+- Pipeline script: Jenkinsfile.
+- Poll SCM was configured with the schedule H/2 * * * *.
+
+### Jenkins Pipeline Stages
+1. Checkout: Retrieves source code from GitHub.
+2. Build: Installs Python dependencies.
+3. Test: Runs automated Pytest tests.
+4. Package: Compiles the application.
+5. Deploy: Starts the Flask application and checks its health endpoint.
+
+### Observations and Results
+- Git repository initialized successfully.
+- Source code committed and pushed to GitHub.
+- Feature branch created and merged into main.
+- Two automated tests passed.
+- Jenkins successfully checked out the GitHub repository.
+- Jenkins installed the application dependencies.
+- Application compilation completed successfully.
+- Flask application deployed successfully.
+- Deployment health check returned healthy.
+- Jenkins build completed with SUCCESS.
+
+### Evidence
+Screenshots are stored in the project's screenshots folder:
+- Git commit history and clean status.
+- GitHub repository.
+- Jenkins build status.
+- Jenkins pipeline overview.
+- Jenkins test report.
+- Jenkins deployment console output.
+
+### Conclusion
+The lab demonstrated Git-based source control, automated testing, Jenkins pipeline execution and application deployment. The work was implemented on Windows rather than Ubuntu Linux.
